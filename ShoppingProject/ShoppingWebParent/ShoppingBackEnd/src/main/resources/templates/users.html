@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<title>Home - Shopping Admin</title>
+
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+	<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div>
+	<nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #F8F6F2;">
+				<a class="navbar-brand" th:href="@{/}" />
+				<img th:src="@{/images/ShoppingAdminSmall.png}">
+				</a>
+
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavbar">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="topNavbar">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link nav-item" th:href="@{/users}">Users</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/categories}">Categories</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/brands}">Brands</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/products}">Products</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/customers}">Customers</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/shipping}">Shipping</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/orders}">Orders</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/report}">Sales Report</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/articles}">Articles</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/menus}">Menus</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/settings}">Settings</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+
+		<div>
+			<h2 class="m-2" style="color:#4FC9DA">Manage Users</h2>
+			<a class="m-2" th:href="@{/users/new}">Create New User</a>
+		</div>
+		
+		<div th:if="${message != null}" class="alert alert-success text-center">
+		[[${message}]]
+		</div>
+
+		<div>
+			<table class="table table-bordered table-striped table-hover table-responsive-xl">
+				<thead style="background-color: #F8F6F2;">
+					<tr>
+						<th style="color:#676153;">User ID</th>
+						<th style="color:#676153;">Photos</th>
+						<th style="color:#676153;">Email</th>
+						<th style="color:#676153;">First Name</th>
+						<th style="color:#676153;">Last Name</th>
+						<th style="color:#676153;">Roles</th>
+						<th style="color:#676153;">Enabled</th>
+						<th style="color:#676153;"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="user : ${listUsers}">
+						<td>[[${user.id}]]</td>
+						<td></td>
+						<td>[[${user.email}]]</td>
+						<td>[[${user.firstName}]]</td>
+						<td>[[${user.lastName}]]</td>
+						<td>[[${user.roles}]]</td>
+						<td>[[${user.enabled}]]</td>
+						<td>
+							Edit &nbsp; Delete
+						</td>
+					</tr>
+			</table>
+		</div>
+
+		<div class="text-center">
+			<p>Shopping Control Panel - Copyright &copy; Shopping</p>
+		</div>
+	</div>
+</body>
+
+</html>
